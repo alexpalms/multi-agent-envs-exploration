@@ -1,2 +1,2 @@
-# petting-zoo-tests
+# PettingZoo Tests
 Tests with PettingZoo environments
