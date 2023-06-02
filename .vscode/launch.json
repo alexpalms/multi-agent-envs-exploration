@@ -1,14 +1,25 @@
 {
     "version": "0.2.0",
+    "inputs": [
+      {
+          "id": "atari_game",
+          "type": "pickString",
+          "description": "Atari game name:",
+          "default": "double_dunk_v3",
+          "options": [
+            "double_dunk_v3",
+          ],
+      }
+    ],
     "configurations": [
       {
         "name": "[PettingZoo] Environment Interaction (venv:petting-zoo)",
         "type": "python",
         "request": "launch",
-        "program": "${workspaceFolder}/atari/env_interaction.py",
-        //"args": [
-        //  "--gameId", "${input:gameId}",
-        //],
+        "program": "${workspaceFolder}/petting_zoo_atari/env_interaction.py",
+        "args": [
+          "--game", "${input:atari_game}",
+        ],
         "console": "integratedTerminal"
       }
     ]

@@ -1,8 +1,8 @@
-from pettingzoo.atari import space_invaders_v2
+import argparse
+from pettingzoo import atari
 
-def main():
-
-    env = space_invaders_v2.env(render_mode="human")
+def main(game_name):
+    env = getattr(atari, game_name).env(render_mode="human")
     env.reset(seed=42)
 
     print("Observations space")
@@ -17,7 +17,7 @@ def main():
         if termination or truncation:
             action = None
         else:
-            action = env.action_space(agent).sample() # this is where you would insert your policy
+            action = env.action_space(agent).sample()  # this is where you would insert your policy
 
         print("Termination: {}".format(termination))
         print("Truncation: {}".format(truncation))
@@ -27,4 +27,8 @@ def main():
     env.close()
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="PettingZoo Atari Game Runner")
+    parser.add_argument("--game", type=str, default="double_dunk_v3", help="Name of the game")
+    args = parser.parse_args()
+
+    main(args.game)
