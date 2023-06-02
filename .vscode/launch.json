@@ -2,23 +2,58 @@
     "version": "0.2.0",
     "inputs": [
       {
-          "id": "atari_game",
+        "id": "api",
+        "type": "pickString",
+        "description": "Execution API:",
+        "default": "parallel",
+        "options": [
+          "parallel",
+          "aec"
+        ],
+      },
+      {
+        "id": "interactive",
+        "type": "pickString",
+        "description": "Execution:",
+        "default": "",
+        "options": [
+          { "label": "Interactive", "value": "1" },
+          { "label": "Non-interactive", "value": "0" }
+        ],
+      },
+      {
+        "id": "category",
+        "type": "pickString",
+        "description": "Environment Category:",
+        "default": "atari",
+        "options": [
+          "atari",
+          "butterfly"
+        ],
+      },
+      {
+          "id": "env",
           "type": "pickString",
-          "description": "Atari game name:",
+          "description": "Environment name:",
           "default": "double_dunk_v3",
           "options": [
-            "double_dunk_v3",
+            { "label": "Atari - double_dunk_v3", "value": "double_dunk_v3" },
+            { "label": "Butterfly - pistonball_v6", "value": "pistonball_v6" },
+            { "label": "Butterfly - knights_archers_zombies_v10", "value": "knights_archers_zombies_v10" }
           ],
-      }
+      },
     ],
     "configurations": [
       {
         "name": "[PettingZoo] Environment Interaction (venv:petting-zoo)",
         "type": "python",
         "request": "launch",
-        "program": "${workspaceFolder}/petting_zoo_atari/env_interaction.py",
+        "program": "${workspaceFolder}/petting_zoo/env_interaction.py",
         "args": [
-          "--game", "${input:atari_game}",
+          "--category", "${input:category}",
+          "--env", "${input:env}",
+          "--api", "${input:api}",
+          "--interactive", "${input:interactive}",
         ],
         "console": "integratedTerminal"
       }

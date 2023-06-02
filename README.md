@@ -1,7 +1,6 @@
 # Multi Agent Environments Tests
 Tests with Multi Agent environments
 
-
 ## Petting Zoo
 
 Ref: https://pettingzoo.farama.org/content/basic_usage/
@@ -14,12 +13,26 @@ Refs:
 
 Installation steps:
 ```shell
-pip install petting-zoo[atari]
+pip install pettingzoo[atari]
 pip install "autorom[accept-rom-license]"
 AutoROM
 ```
 
 Run example:
 ```shell
-python petting_zoo_atari/env_interaction.py --game double_dunk_v3
+python petting_zoo/env_interaction.py --category atari --env double_dunk_v3
+```
+
+### Butterfly
+
+Ref: https://pettingzoo.farama.org/environments/butterfly/
+
+Installation steps:
+```shell
+pip install pettingzoo[butterfly]
+```
+
+Run example:
+```shell
+python petting_zoo/env_interaction.py --category butterfly --env pistonball_v6
 ```
