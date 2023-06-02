@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "[PettingZoo] Environment Interaction (venv:petting-zoo)",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/atari/env_interaction.py",
+        //"args": [
+        //  "--gameId", "${input:gameId}",
+        //],
+        "console": "integratedTerminal"
+      }
+    ]
+}
