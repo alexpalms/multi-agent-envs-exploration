@@ -19,8 +19,10 @@ def parallel_api(env, interactive):
 
         observations, rewards, terminations, truncations, infos = env.step(actions)
 
+        print("Rewards: {}".format(rewards))
         print("Termination: {}".format(terminations))
         print("Truncation: {}".format(truncations))
+        print("Infos: {}".format(infos))
         print("Action: {}".format(actions))
         if interactive:
             input("Press Button")
@@ -51,10 +53,12 @@ def aec_api(env, interactive):
                 mask = None
             action = env.action_space(agent).sample(mask) # this is where you would insert your policy
 
+        print("Reward: {}".format(reward))
         print("Termination: {}".format(termination))
         print("Truncation: {}".format(truncation))
         print("Action: {}".format(action))
         print("Mask: {}".format(mask))
+        print("Info: {}".format(info))
         if interactive:
             input("Press Button")
 
